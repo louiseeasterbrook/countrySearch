@@ -178,7 +178,7 @@ const template = function (
 ) {
   currentCount++;
   const countryHtml = `
-  <div class="invi slide" id="country-${currentCount}">
+  <div class="slide-div slide" id="country-${currentCount}">
           <div class="sec-1 ">
             <img src="${flag}" class="flag-img" />
           </div>
