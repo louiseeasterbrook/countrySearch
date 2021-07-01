@@ -219,9 +219,7 @@ input:focus {
 .welcome {
   margin: 5rem auto;
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   background-color: $main;
   padding: 1.5rem;
   border-radius: 20px;
@@ -258,6 +256,10 @@ input:focus {
   }
 }
 
+.welcome h2 {
+  text-align: center;
+}
+
 .welcome img {
   width: 30%;
   height: 30%;
@@ -265,7 +267,10 @@ input:focus {
 }
 
 .welcome-text {
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   text-align: center;
 }
 
@@ -338,8 +343,39 @@ input:focus {
 }
 
 .load {
+  margin-top: 0rem;
   text-align: center;
   z-index: -15;
+  opacity: 0;
+}
+
+.load-in {
+  animation: load-in-animation 0.3s forwards;
+}
+.load-out {
+  animation: load-out-animation 0.3s forwards;
+}
+
+@keyframes load-in-animation {
+  0% {
+    margin-top: 0rem;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 2rem;
+    opacity: 1;
+  }
+}
+
+@keyframes load-out-animation {
+  0% {
+    margin-top: 2rem;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 0rem;
+    opacity: 0;
+  }
 }
 
 .hide {
@@ -499,5 +535,6 @@ h3 {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 2rem;
+    padding: 1rem 0.2rem;
   }
 }

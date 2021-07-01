@@ -79,7 +79,7 @@ const findCountry = async function (countryName, input) {
     if (currentCount != 0) {
       removeCountry(currentCount);
     }
-    load.classList.remove("hide");
+    loadToggle("out", "in");
 
     //get border value
     let border = "none";
@@ -128,6 +128,11 @@ errorRemove = function () {
     setTimeout(() => currentError.remove(), 500);
     errorShow = false;
   }
+};
+
+loadToggle = function (remove, add) {
+  load.classList.remove(`load-${remove}`);
+  load.classList.add(`load-${add}`);
 };
 
 //____________________________________________________________________________
@@ -197,7 +202,7 @@ const template = function (
           </div>
       </div>`;
 
-  load.classList.add("hide");
+  loadToggle("in", "out");
   //add html to page
   countryContainer.insertAdjacentHTML("afterbegin", countryHtml);
 };
