@@ -44,7 +44,6 @@ header {
 }
 
 .search-section {
-  height: 20vh;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,7 +71,7 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 20%;
-  min-width: 270px;
+  min-width: 240px;
   padding: 0.4rem;
   border-radius: 25px;
 }
@@ -572,6 +571,12 @@ h3 {
   body {
     overflow-y: visible;
   }
+  .title {
+    font-size: 1.5rem;
+  }
+  .search-holder {
+    padding: 0rem;
+  }
   .errorTxt {
     width: 85%;
     padding: 1rem;
@@ -594,7 +599,7 @@ h3 {
     gap: 0rem;
   }
   .welcome {
-    width: 90%;
+    width: 80%;
   }
   .pad-side {
     width: 7%;
