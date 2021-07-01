@@ -682,7 +682,9 @@ h3 {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 2rem;
-    padding: 1rem 0.2rem;
+  }
+  .api-container {
+    margin: 1rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
