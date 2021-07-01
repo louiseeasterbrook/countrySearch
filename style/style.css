@@ -266,7 +266,7 @@ input:focus {
 }
 
 .welcome {
-  margin: 5rem auto;
+  margin: 3rem auto;
   width: 50%;
   background-color: #ffffff;
   padding: 1.5rem;
@@ -349,6 +349,7 @@ input:focus {
 }
 
 .welcome h2 {
+  margin: 0;
   text-align: center;
 }
 
@@ -555,6 +556,7 @@ h3 {
   text-align: center;
   font-size: 2rem;
   margin: 0;
+  padding: 1rem;
 }
 
 .country-container {
@@ -633,7 +635,7 @@ h3 {
     overflow-y: visible;
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .search-holder {
     padding: 0rem;

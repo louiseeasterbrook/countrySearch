@@ -217,9 +217,8 @@ input:focus {
 //WELCOME SECTION
 
 .welcome {
-  margin: 5rem auto;
+  margin: 3rem auto;
   width: 50%;
-
   background-color: $main;
   padding: 1.5rem;
   border-radius: 20px;
@@ -257,6 +256,7 @@ input:focus {
 }
 
 .welcome h2 {
+  margin: 0;
   text-align: center;
 }
 
@@ -416,6 +416,7 @@ h3 {
   text-align: center;
   font-size: 2rem;
   margin: 0;
+  padding: 1rem;
 }
 
 .country-container {
@@ -478,7 +479,7 @@ h3 {
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .search-holder {
