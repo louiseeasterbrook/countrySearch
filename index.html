@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- browser tab icon -->
+    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <!-- body font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font for 'info' button -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+    <!-- JAVASCRIPT -->
+    <script defer src="app.js"></script>
+    <title>Country Search</title>
+  </head>
+
+  <body>
+    <div class="top">
+      <header>
+        <h1><a class="title" href="index.html">Country Search</a></h1>
+      </header>
+
+      <div class="search-section">
+        <div class="info-search-holder">
+          <!-- infomation button -->
+          <p class="info">i</p>
+          <div class="search-holder">
+            <!-- search bar -->
+            <input
+              type="text"
+              id="textBox"
+              placeholder="Enter a Country Name"
+            />
+            <!-- search bar button -->
+            <div class="btn-holder"><div class="country-btn"></div></div>
+          </div>
+        </div>
+
+        <div class="error">
+          <!-- error message goes here  -->
+        </div>
+      </div>
+    </div>
+
+    <div class="main-section">
+      <div class="pad-side"></div>
+      <div class="content-container">
+        <!-- welcome container -->
+        <div class="welcome">
+          <div class="crossHolder">
+            <div class="cross"></div>
+          </div>
+          <img src="./earth.png" alt="" />
+          <div class="welcome-text">
+            <h2>Welcome</h2>
+            <p>
+              Search a Country name in the search bar above to see the Country's
+              profile
+            </p>
+          </div>
+        </div>
+        <!-- country content goes here  -->
+      </div>
+      <div class="pad-side"></div>
+    </div>
+  </body>
+</html>

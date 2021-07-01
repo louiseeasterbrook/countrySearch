@@ -1,0 +1,484 @@
+$main: #ffffff;
+$second: #e7e7e7;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hind Siliguri", sans-serif;
+  background-color: $second;
+  overflow-y: hidden;
+  min-width: 360px;
+}
+p {
+  margin: 0.6rem;
+}
+
+//_____________________________________________________________
+//HEADER - TITLE SECTION
+
+.top {
+  background-color: $main;
+  z-index: 999;
+  box-shadow: 0px 1px 30px #6e6e6e;
+}
+
+.title {
+  font-size: 3rem;
+  text-decoration: none;
+  color: black;
+}
+
+.title:hover {
+  cursor: pointer;
+  color: grey;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+//_____________________________________________________________
+//SEARCH SECTION
+
+.search-section {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 20%;
+  min-width: 270px;
+  padding: 0.4rem;
+  border-radius: 25px;
+}
+
+.info-search-holder {
+  display: flex;
+  background-color: $second;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+#textBox {
+  background-color: $second;
+  border: none;
+  width: 100%;
+  height: 1.5rem;
+  padding-left: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+//_____________________________________________________________
+//INFO BUTTON
+
+.info {
+  font-family: "Courgette", cursive;
+  width: 27px;
+  height: 27px;
+  background-color: $main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+.info:hover::after {
+  font-family: "Hind Siliguri", sans-serif;
+  content: "Type a Country Name in the search bar to see the Country's Profile ";
+  position: absolute;
+  background-color: $second;
+  opacity: 0.8;
+  width: 200px;
+  transform: translate(5rem, 5.5rem);
+  padding: 0.7rem;
+  border-radius: 15px;
+  font-weight: normal;
+  z-index: 10;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+//_____________________________________________________________
+//INPUT BUTTON
+
+.btn-holder {
+  cursor: pointer;
+  width: 35px;
+  height: 25px;
+  background-color: $second;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.btn-holder:hover {
+  background-color: $main;
+}
+
+.country-btn {
+  width: 25px;
+  height: 5px;
+  background-color: black;
+  cursor: pointer;
+  position: relative;
+  border-radius: 5px;
+}
+
+.country-btn::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 4px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+  right: -2px;
+  bottom: 5px;
+  border-radius: 5px;
+}
+
+.country-btn::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 4px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+  right: -2px;
+  bottom: -3px;
+  border-radius: 5px;
+}
+//_____________________________________________________________
+//ERRORS
+
+.error {
+  width: 100%;
+  position: relative;
+  margin: 1rem;
+}
+
+.errorTxt {
+  background-color: red;
+  padding: 1rem;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.error-slide {
+  animation: error-slide-animation 0.7s forwards;
+}
+
+.error-out {
+  animation: error-out-animation 0.4s forwards;
+}
+
+@keyframes error-slide-animation {
+  0% {
+    opacity: 0;
+    margin-top: 1rem;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes error-out-animation {
+  0% {
+    opacity: 1;
+    margin-top: 0;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 1rem;
+  }
+}
+
+//_____________________________________________________________
+//WELCOME SECTION
+
+.welcome {
+  margin: 5rem auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main;
+  padding: 1.5rem;
+  border-radius: 20px;
+  animation: float 4s infinite;
+}
+
+.welcome-hide {
+  animation: welcome-fade 0.6s forwards;
+}
+
+@keyframes welcome-fade {
+  0% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 20px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-8px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+.welcome img {
+  width: 30%;
+  height: 30%;
+  padding: 1rem;
+}
+
+.welcome-text {
+  width: 60%;
+  text-align: center;
+}
+
+.crossHolder {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.crossHolder:hover {
+  background-color: $second;
+  cursor: pointer;
+}
+
+.cross {
+  right: 0;
+  background-color: black;
+  width: 3px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+
+.cross::before {
+  content: "";
+  display: inline-block;
+  background-color: black;
+  width: 3px;
+  height: 20px;
+  transform: rotate(-90deg);
+}
+
+//______________________________________________________________
+//MAIN SECTION CONTAINERS
+
+.main-section {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+}
+
+//side padding
+.pad-side {
+  width: 30%;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  height: 100%;
+}
+
+.api-container {
+  margin: 2rem;
+}
+
+.invi {
+  z-index: -10;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  gap: 3rem;
+}
+//______________________________________________________________
+//FLAG SECTION
+
+.sec-1 {
+  width: 70%;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag-img {
+  width: 100%;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+//______________________________________________________________
+//COUNTRY TEXT SECTION
+
+.sec-2 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//country title
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.country-container {
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+//Animation: conteet sldies from bottom to middle of screen
+.slide {
+  animation: info-slide-animation 0.7s forwards 0.3s;
+}
+
+@keyframes info-slide-animation {
+  0% {
+    margin-top: 60rem;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+//Animation: content slides up on screen and fades out
+.fadeOut {
+  animation: fade 0.6s forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -15rem;
+  }
+}
+
+.hide {
+  display: "none";
+}
+
+//______________________________________________________________
+//MEDIA QUERIES
+
+@media screen and (max-width: 1100px) {
+  .pad-side {
+    width: 10%;
+  }
+}
+
+//______________________________________________________________
+
+@media screen and (max-width: 700px) {
+  body {
+    overflow-y: visible;
+  }
+
+  .errorTxt {
+    width: 85%;
+    padding: 1rem;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-53%);
+    color: white;
+    text-align: center;
+  }
+
+  .main-section {
+    height: 100vh;
+  }
+
+  .content-container {
+    flex-direction: column-reverse;
+    gap: 0rem;
+  }
+
+  .welcome {
+    width: 90%;
+  }
+
+  .pad-side {
+    width: 7%;
+  }
+
+  .sec-1 {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .flag-img {
+    max-height: 37vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .sec-2 {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .invi {
+    flex-direction: column;
+  }
+}
