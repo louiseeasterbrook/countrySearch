@@ -79,6 +79,7 @@ const findCountry = async function (countryName, input) {
     if (currentCount != 0) {
       removeCountry(currentCount);
     }
+    load.classList.remove("hide");
 
     //get border value
     let border = "none";
@@ -196,6 +197,7 @@ const template = function (
           </div>
       </div>`;
 
+  load.classList.add("hide");
   //add html to page
   countryContainer.insertAdjacentHTML("afterbegin", countryHtml);
 };

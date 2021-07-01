@@ -446,6 +446,14 @@ input:focus {
   gap: 3rem;
 }
 
+.load {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
 .sec-1 {
   width: 70%;
   height: 60vh;
