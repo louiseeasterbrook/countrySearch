@@ -6,6 +6,7 @@ const infoBtn = document.querySelector(".info");
 const exitWelcome = document.querySelector(".crossHolder");
 const load = document.querySelector(".load");
 
+let previousInput = "";
 let currentCount = 0;
 let currentCountry = "";
 let errorShow = false;
@@ -26,7 +27,7 @@ btn.addEventListener("click", function () {
   inputEntered();
 });
 
-//if enter key is pressed, country serach is triggered
+//if enter key is pressed, country search is triggered
 document.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     inputEntered();
@@ -42,16 +43,19 @@ const inputEntered = function () {
   errorRemove();
 
   //check if text input vlaue is null
-  let country = textInput.value;
-  if (country == "") {
+  let currentSearch = textInput.value;
+  if (!currentSearch) {
     //show message to prompt user to enter the input
     showError("Please Enter a County name");
-    //check if search country is already being shown
-  } else if (country.toLowerCase() === currentCountry.toLowerCase()) {
+    //check if searched country is already being shown
+  } else if (
+    currentSearch.toLowerCase() === currentCountry.toLowerCase() ||
+    currentSearch.toLowerCase() === previousInput.toLowerCase()
+  ) {
     showError("This country is currently being shown");
   } else {
     //call function to fetch country data
-    findCountry(country, country);
+    findCountry(currentSearch);
     //clear text input
     textInput.value = "";
   }
@@ -60,11 +64,11 @@ const inputEntered = function () {
 //____________________________________________________________________________
 
 // Get country data
-const findCountry = async function (countryName, input) {
+const findCountry = async function (inputCountryName) {
   try {
     //obtain country data
     const data = await getJSON(
-      `https://restcountries.eu/rest/v2/name/${countryName}`
+      `https://restcountries.com/v3.1/name/${inputCountryName}`
     );
 
     //remove welcome message on first search
@@ -73,7 +77,8 @@ const findCountry = async function (countryName, input) {
     }
 
     //save the value of the user text input
-    currentCountry = input;
+    currentCountry = data[0].name.common;
+    previousInput = inputCountryName;
 
     //remove current country
     if (currentCount != 0) {
@@ -82,24 +87,33 @@ const findCountry = async function (countryName, input) {
     loadToggle("out", "in");
 
     //get border value
-    let border = "none";
-    if (data[0].borders.length > 0) {
-      border = await getBorders(data[0].borders);
+    let border = "None";
+    //check if borders exist
+    if (data[0].borders) {
+      if (data[0].borders.length > 0) {
+        border = await getBorders(data[0].borders);
+      }
+    }
+
+    //set name of first currency object name
+    let currencyName;
+    for (d in data[0].currencies) {
+      currencyName = [d][0];
     }
 
     // add country data
     template(
-      data[0].name,
+      data[0].name.common,
       data[0].region,
-      data[0].capital,
+      data[0].capital[0],
       populationRound(data[0].population),
-      data[0].currencies[0].name,
-      data[0].currencies[0].symbol,
-      data[0].flag,
+      data[0].currencies[currencyName].name,
+      data[0].currencies[currencyName].symbol,
+      data[0].flags.svg,
       border
     );
-  } catch (err) {
-    showError(err);
+  } catch (error) {
+    showError(error);
   }
 };
 
@@ -172,14 +186,14 @@ const populationRound = function (number) {
 
 //function to build and append country info
 const template = function (
-  name,
-  continent,
-  capital,
-  population,
-  moneyName,
-  moneySymbol,
+  name = "-",
+  continent = "-",
+  capital = "-",
+  population = "-",
+  moneyName = "-",
+  moneySymbol = "-",
   flag,
-  border
+  border = "-"
 ) {
   currentCount++;
   const countryHtml = `
@@ -194,7 +208,6 @@ const template = function (
                 <p><strong>Continent:</strong> ${continent}</p>
                 <p><strong>Capital City:</strong> ${capital}</p>
                 <p><strong>Population:</strong> ${population}</p>
-
                 <p><strong>Currency:</strong> ${moneyName} (${moneySymbol})</p>
                 <p><strong>Bordering countries:</strong> ${border}</p>
               </div>
@@ -215,10 +228,10 @@ const getBorders = async function (borderArray) {
     let borderList = [];
     for (let i = 0; i < borderArray.length; i++) {
       let data2 = await getJSON(
-        `https://restcountries.eu/rest/v2/alpha/${borderArray[i]}`
+        `https://restcountries.com/v3.1/alpha/${borderArray[i]}`
       );
       //push all country name into the borderList array
-      borderList.push(data2.name);
+      borderList.push(data2[0].name.common);
     }
 
     let borderString = "";
@@ -231,7 +244,7 @@ const getBorders = async function (borderArray) {
       }
     }
     return borderString;
-  } catch {
-    console.error("error");
+  } catch (error) {
+    console.error("borderList error");
   }
 };
